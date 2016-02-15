@@ -11,6 +11,13 @@ set expandtab
 set wrap
 set nocompatible  
 set undolevels=1000
+set foldmethod=indent  
+set foldlevelstart=99
+set showmatch
+set autoindent  
+set cindent  
+set smartindent
+
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
