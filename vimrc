@@ -22,11 +22,11 @@ set foldmethod=indent
 set foldlevelstart=99
 
 set autoindent  
-set cindent  
-set smartindent
+" set cindent
+" set smartindent
 
 " 普通模式下关闭输入法
-set noimd
+"set noimd
 
 filetype off
 
