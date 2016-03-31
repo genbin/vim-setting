@@ -21,7 +21,8 @@ set undolevels=1000
 set foldmethod=indent  
 set foldlevelstart=99
 
-set autoindent  
+
+" set autoindent  
 " set cindent
 " set smartindent
 
@@ -57,6 +58,11 @@ colorscheme solarized
 let g:solarized_contrast="high"
 let g:solarized_termcolors=256
 
+" ctrlP 忽略
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  'node_modules$\|\.git$\|\.hg$\|\.svn$\|\.yardoc$',
+  \ 'file': '\.exe$\|\.so$\|\.dat$'
+  \ }
 
 filetype plugin indent on
 let g:mapleader=","
@@ -66,8 +72,9 @@ map <leader>f :NERDTreeFind<CR>
 set hidden " 避免必须保存修改才可以跳转buffer
 
 " buffer快速导航
-nnoremap <Leader>b :bp<CR>
-nnoremap <Leader>f :bn<CR>
+nnoremap <Leader>p :bp<CR>
+nnoremap <Leader>n :bn<CR>
+nnoremap <leader>b :MBEToggle<CR>
 " 查看buffers
 nnoremap <Leader>l :ls<CR>
 " 通过索引快速跳转
@@ -81,3 +88,7 @@ nnoremap <Leader>7 :7b<CR>
 nnoremap <Leader>8 :8b<CR>
 nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
+
+set clipboard=unnamed 
+map "+y :w !pbcopy<CR><CR> 
+map "+p :r !pbpaste<CR><CR>
