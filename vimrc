@@ -21,7 +21,6 @@ set undolevels=1000
 set foldmethod=indent  
 set foldlevelstart=99
 
-
 " set autoindent  
 " set cindent
 " set smartindent
@@ -43,6 +42,7 @@ Bundle 'mattn/emmet-vim'
 Bundle 'mxw/vim-jsx'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'fholgado/minibufexpl.vim'
+Bundle 'EasyGrep'
 
 " miniBufExplorer 配置
 let g:miniBufExplMapWindowNavVim = 1   
@@ -50,6 +50,13 @@ let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1   
 let g:miniBufExplModSelTarget = 1  
 let g:miniBufExplMoreThanOne=0
+
+" EasyGrep 配置
+let g:EasyGrepMode = 1    " All:0, Open Buffers:1, TrackExt:2, 
+let g:EasyGrepCommand = 0  " Use vimgrep:0, grepprg:1
+let g:EasyGrepRecursive  = 1 " Recursive searching
+let g:EasyGrepIgnoreCase = 1 " not ignorecase:0
+let g:EasyGrepFilesToExclude = "*.bak, *~, cscope.*, *.a, *.o, *.pyc, *.bak"
 
 " 主题配色
 set guifont=Monaco:h12
