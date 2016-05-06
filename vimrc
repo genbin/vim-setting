@@ -8,10 +8,18 @@ set nobackup
 "set cursorcolumn
 
 set smarttab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set expandtab
+autocmd FileType php,python,c,java,perl,shell,bash,vim,ruby,cpp set autoindent
+autocmd FileType php,python,c,java,perl,shell,bash,vim,ruby,cpp set shiftwidth=4
+autocmd FileType php,python,c,java,perl,shell,bash,vim,ruby,cpp set tabstop=4
+autocmd FileType php,python,c,java,perl,shell,bash,vim,ruby,cpp set softtabstop=4
+autocmd FileType javascript,html,css,xml set autoindent
+autocmd FileType javascript,html,css,xml set shiftwidth=2
+autocmd FileType javascript,html,css,xml set tabstop=2
+autocmd FileType javascript,html,css,xml set softtabstop=2
 
 set wrap
 set showmatch
@@ -21,9 +29,9 @@ set undolevels=1000
 set foldmethod=indent  
 set foldlevelstart=99
 
-" set autoindent  
-" set cindent
-" set smartindent
+set autoindent  
+set cindent
+set smartindent
 
 " 普通模式下关闭输入法
 "set noimd
@@ -52,7 +60,7 @@ let g:miniBufExplModSelTarget = 1
 let g:miniBufExplMoreThanOne=0
 
 " EasyGrep 配置
-let g:EasyGrepMode = 1    " All:0, Open Buffers:1, TrackExt:2, 
+let g:EasyGrepMode = 0    " All:0, Open Buffers:1, TrackExt:2, 
 let g:EasyGrepCommand = 0  " Use vimgrep:0, grepprg:1
 let g:EasyGrepRecursive  = 1 " Recursive searching
 let g:EasyGrepIgnoreCase = 1 " not ignorecase:0
@@ -67,7 +75,7 @@ let g:solarized_termcolors=256
 
 " ctrlP 忽略
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  'node_modules$\|\.git$\|\.hg$\|\.svn$\|\.yardoc$',
+  \ 'dir':  'node_modules$\|\.git$\|\.hg$\|\.svn$\|\.yardoc$\|\.dist$\|\.build$',
   \ 'file': '\.exe$\|\.so$\|\.dat$'
   \ }
 
@@ -76,7 +84,8 @@ let g:mapleader=","
 map <leader>d :NERDTreeToggle<CR>
 map <leader>f :NERDTreeFind<CR>
 
-set hidden " 避免必须保存修改才可以跳转buffer
+" 避免必须保存修改才可以跳转buffer
+"set hidden 
 
 " buffer快速导航
 nnoremap <Leader>p :bp<CR>
@@ -97,5 +106,11 @@ nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
 
 set clipboard=unnamed 
-map "+y :w !pbcopy<CR><CR> 
-map "+p :r !pbpaste<CR><CR>
+map <Leader>Y :w !pbcopy<CR><CR> 
+map <Leader>P :r !pbpaste<CR><CR>
+
+" 修补蓝牙键盘k380的bug
+map! § `
+map § `
+map! ± ~
+map ± ~
