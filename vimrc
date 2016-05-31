@@ -26,11 +26,13 @@ set showmatch
 set nocompatible  
 set undolevels=1000
 
+
+" 编辑模式下：za,切换折叠状态；zo,打开折叠；zc,关闭折叠
 set foldmethod=indent  
 set foldlevelstart=99
 
 set autoindent  
-set cindent
+" set cindent
 set smartindent
 
 " 普通模式下关闭输入法
@@ -43,21 +45,19 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'L9'
 Bundle 'The-NERD-tree'
+" 快捷键：,+cc / ,+cu
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'crusoexia/vim-monokai'
+Bundle 'altercation/vim-colors-solarized'
+" 快捷键：^p
 Bundle 'kien/ctrlp.vim'
+" 快捷键：^y+,
 Bundle 'mattn/emmet-vim'
 Bundle 'mxw/vim-jsx'
-Bundle 'altercation/vim-colors-solarized'
+" 快捷键：,+b
 Bundle 'fholgado/minibufexpl.vim'
+" 快捷键：,vv:搜索 ,vV:全词匹配; ,vo:打开选项单
 Bundle 'EasyGrep'
-
-" miniBufExplorer 配置
-let g:miniBufExplMapWindowNavVim = 1   
-let g:miniBufExplMapWindowNavArrows = 1   
-let g:miniBufExplMapCTabSwitchBufs = 1   
-let g:miniBufExplModSelTarget = 1  
-let g:miniBufExplMoreThanOne=0
 
 " EasyGrep 配置
 let g:EasyGrepMode = 0    " All:0, Open Buffers:1, TrackExt:2, 
@@ -66,12 +66,20 @@ let g:EasyGrepRecursive  = 1 " Recursive searching
 let g:EasyGrepIgnoreCase = 1 " not ignorecase:0
 let g:EasyGrepFilesToExclude = "*.bak, *~, cscope.*, *.a, *.o, *.pyc, *.bak"
 
+" miniBufExplorer 配置
+let g:miniBufExplMapWindowNavVim = 1   
+let g:miniBufExplMapWindowNavArrows = 1   
+let g:miniBufExplMapCTabSwitchBufs = 1   
+let g:miniBufExplModSelTarget = 1  
+let g:miniBufExplMoreThanOne=0
+
+
 " 主题配色
-set guifont=Monaco:h12
-set background=dark
-colorscheme solarized
-let g:solarized_contrast="high"
-let g:solarized_termcolors=256
+"set guifont=Monaco:h13
+"set background=dark
+"colorscheme solarized
+"let g:solarized_contrast="high"
+"let g:solarized_termcolors=256
 
 " ctrlP 忽略
 let g:ctrlp_custom_ignore = {
@@ -81,6 +89,8 @@ let g:ctrlp_custom_ignore = {
 
 filetype plugin indent on
 let g:mapleader=","
+
+" 切换左侧树结构
 map <leader>d :NERDTreeToggle<CR>
 map <leader>f :NERDTreeFind<CR>
 
@@ -105,11 +115,13 @@ nnoremap <Leader>8 :8b<CR>
 nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
 
+" 直接复制所选择文字到系统剪贴板
 set clipboard=unnamed 
 map <Leader>Y :w !pbcopy<CR><CR> 
 map <Leader>P :r !pbpaste<CR><CR>
 
 " 修补蓝牙键盘k380的bug
+" iterm2中自带map映射，也可以解决这类问题
 map! § `
 map § `
 map! ± ~
