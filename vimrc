@@ -46,6 +46,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'L9'
+" 左侧树形结构
 Bundle 'The-NERD-tree'
 " 快捷键：,+cc / ,+cu
 Bundle 'scrooloose/nerdcommenter'
