@@ -1,12 +1,14 @@
-set nu!
 syntax on
+set number
+set ruler
+set nobackup
 set cmdheight=2
 set laststatus=2
-set nobackup
 
 "set cursorline
 "set cursorcolumn
 
+" 根据后缀不同，tab为不同空格
 set smarttab
 set tabstop=4
 set shiftwidth=4
@@ -58,13 +60,17 @@ Bundle 'mxw/vim-jsx'
 Bundle 'fholgado/minibufexpl.vim'
 " 快捷键：,vv:搜索 ,vV:全词匹配; ,vo:打开选项单
 Bundle 'EasyGrep'
+" Tabularize 文本对其
+Bundle 'godlygeek/tabular'
+" 增强markdown
+Bundle 'plasticboy/vim-markdown'
 
 " EasyGrep 配置
-let g:EasyGrepMode = 0    " All:0, Open Buffers:1, TrackExt:2, 
-let g:EasyGrepCommand = 0  " Use vimgrep:0, grepprg:1
+let g:EasyGrepMode = 0   " All:0, Open Buffers:1, TrackExt:2, 
+let g:EasyGrepCommand = 1  " Use vimgrep:0, grepprg:1
 let g:EasyGrepRecursive  = 1 " Recursive searching
 let g:EasyGrepIgnoreCase = 1 " not ignorecase:0
-let g:EasyGrepFilesToExclude = "*.bak, *~, cscope.*, *.a, *.o, *.pyc, *.bak"
+let g:EasyGrepFilesToExclude = "lib,.git,node_modules,*.bak,*~,cscope.*,*.a,*.o,*.pyc,*.orig,bundle.js" 
 
 " miniBufExplorer 配置
 let g:miniBufExplMapWindowNavVim = 1   
@@ -84,7 +90,7 @@ let g:miniBufExplMoreThanOne=0
 " ctrlP 忽略
 let g:ctrlp_custom_ignore = {
   \ 'dir':  'node_modules$\|\.git$\|\.hg$\|\.svn$\|\.yardoc$\|\.dist$\|\.build$',
-  \ 'file': '\.exe$\|\.so$\|\.dat$'
+  \ 'file': '\.exe$\|\.so$\|\.dat|\.pyc$'
   \ }
 
 filetype plugin indent on
@@ -93,6 +99,8 @@ let g:mapleader=","
 " 切换左侧树结构
 map <leader>d :NERDTreeToggle<CR>
 map <leader>f :NERDTreeFind<CR>
+" 隐藏特定文件
+let NERDTreeIgnore=['\.vim$','\~$','\.pyc$']
 
 " 避免必须保存修改才可以跳转buffer
 "set hidden 
@@ -119,6 +127,15 @@ nnoremap <Leader>0 :10b<CR>
 set clipboard=unnamed 
 map <Leader>Y :w !pbcopy<CR><CR> 
 map <Leader>P :r !pbpaste<CR><CR>
+
+
+" Tabularize 文本对其
+nmap <Leader>t= :Tabularize /=<CR>
+vmap <Leader>t= :Tabularize /=<CR>
+nmap <Leader>t: :Tabularize /:\zs<CR>
+vmap <Leader>t: :Tabularize /:\zs<CR>
+nmap <Leader>t, :Tabularize /,\zs<CR>
+vmap <Leader>t, :Tabularize /,\zs<CR>
 
 " 修补蓝牙键盘k380的bug
 " iterm2中自带map映射，也可以解决这类问题
