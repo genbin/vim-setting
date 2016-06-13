@@ -14,10 +14,15 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-autocmd FileType php,python,c,java,perl,shell,bash,vim,ruby,cpp set autoindent
-autocmd FileType php,python,c,java,perl,shell,bash,vim,ruby,cpp set shiftwidth=4
-autocmd FileType php,python,c,java,perl,shell,bash,vim,ruby,cpp set tabstop=4
-autocmd FileType php,python,c,java,perl,shell,bash,vim,ruby,cpp set softtabstop=4
+autocmd FileType python set autoindent
+autocmd FileType python set shiftwidth=4
+autocmd FileType python set tabstop=4
+autocmd FileType python set softtabstop=4
+autocmd FileType python set noexpandtab
+autocmd FileType php,c,java,perl,shell,bash,vim,ruby,cpp set autoindent
+autocmd FileType php,c,java,perl,shell,bash,vim,ruby,cpp set shiftwidth=4
+autocmd FileType php,c,java,perl,shell,bash,vim,ruby,cpp set tabstop=4
+autocmd FileType php,c,java,perl,shell,bash,vim,ruby,cpp set softtabstop=4
 autocmd FileType javascript,html,css,xml set autoindent
 autocmd FileType javascript,html,css,xml set shiftwidth=2
 autocmd FileType javascript,html,css,xml set tabstop=2
@@ -91,7 +96,7 @@ let g:miniBufExplMoreThanOne=0
 " ctrlP 忽略
 let g:ctrlp_custom_ignore = {
   \ 'dir':  'node_modules$\|\.git$\|\.hg$\|\.svn$\|\.yardoc$\|\.dist$\|\.build$',
-  \ 'file': '\.exe$\|\.so$\|\.dat|\.pyc$'
+  \ 'file': '\v\.(exe|so|dll|dat|pyc)$'
   \ }
 
 filetype plugin indent on

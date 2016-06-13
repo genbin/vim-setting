@@ -1,7 +1,7 @@
 # 常用的Vim插件
 ------------------
 * 左侧树形结构
-Bundle 'The-NERD-tree'
+> Bundle 'The-NERD-tree'
 * 快捷键：,+cc / ,+cu
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'crusoexia/vim-monokai'
