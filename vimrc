@@ -2,31 +2,31 @@ syntax on
 set number
 set ruler
 set nobackup
+set noswapfile
 set cmdheight=2
 set laststatus=2
+set ffs=mac,unix,dos
 
 "set cursorline
 "set cursorcolumn
 
 " 根据后缀不同，tab为不同空格
-set smarttab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-autocmd FileType python set autoindent
-autocmd FileType python set shiftwidth=4
+autocmd FileType php,c,java,perl,shell,bash,vim,ruby,cpp set tabstop=4
+autocmd FileType php,c,java,perl,shell,bash,vim,ruby,cpp set shiftwidth=4
+autocmd FileType php,c,java,perl,shell,bash,vim,ruby,cpp set softtabstop=4
+autocmd FileType php,c,java,perl,shell,bash,vim,ruby,cpp set expandtab=4
 autocmd FileType python set tabstop=4
+autocmd FileType python set shiftwidth=4
 autocmd FileType python set softtabstop=4
 autocmd FileType python set noexpandtab
-autocmd FileType php,c,java,perl,shell,bash,vim,ruby,cpp set autoindent
-autocmd FileType php,c,java,perl,shell,bash,vim,ruby,cpp set shiftwidth=4
-autocmd FileType php,c,java,perl,shell,bash,vim,ruby,cpp set tabstop=4
-autocmd FileType php,c,java,perl,shell,bash,vim,ruby,cpp set softtabstop=4
-autocmd FileType javascript,html,css,xml set autoindent
-autocmd FileType javascript,html,css,xml set shiftwidth=2
 autocmd FileType javascript,html,css,xml set tabstop=2
+autocmd FileType javascript,html,css,xml set shiftwidth=2
 autocmd FileType javascript,html,css,xml set softtabstop=2
+autocmd FileType javascript,html,css,xml set expandtab=2
 
 set wrap
 set showmatch
@@ -85,14 +85,21 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1  
 let g:miniBufExplMoreThanOne=0
 
-
 " 主题配色
-"set guifont=Monaco:h13
-"set background=dark
-"colorscheme solarized
-"let g:solarized_contrast="high"
-"let g:solarized_termcolors=256
+if has('gui_running')
+set guifont=Monaco:h13
+set background=dark
+set noanti
+highlight Cursor guifg=gray guibg=red
+"set cursorline
+colorscheme solarized
+let g:solarized_contrast="high"
+let g:solarized_termcolors=256
+endif
 
+" http://blog.codepiano.com/pages/ctrlp-cn.light.html
+" 禁用缓存
+let g:ctrlp_use_caching = 1
 " ctrlP 忽略
 let g:ctrlp_custom_ignore = {
   \ 'dir':  'node_modules$\|\.git$\|\.hg$\|\.svn$\|\.yardoc$\|\.dist$\|\.build$',
@@ -118,16 +125,8 @@ nnoremap <leader>b :MBEToggle<CR>
 " 查看buffers
 nnoremap <Leader>l :ls<CR>
 " 通过索引快速跳转
-nnoremap <Leader>1 :1b<CR>
-nnoremap <Leader>2 :2b<CR>
-nnoremap <Leader>3 :3b<CR>
-nnoremap <Leader>4 :4b<CR>
-nnoremap <Leader>5 :5b<CR>
-nnoremap <Leader>6 :6b<CR>
-nnoremap <Leader>7 :7b<CR>
-nnoremap <Leader>8 :8b<CR>
-nnoremap <Leader>9 :9b<CR>
-nnoremap <Leader>0 :10b<CR>
+nnoremap <Leader># :1,100bd\|NERDTree<CR>
+
 
 " 直接复制所选择文字到系统剪贴板
 set clipboard=unnamed 
