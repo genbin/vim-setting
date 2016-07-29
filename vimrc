@@ -18,7 +18,7 @@ set expandtab
 autocmd FileType php,c,java,perl,shell,bash,vim,ruby,cpp set tabstop=4
 autocmd FileType php,c,java,perl,shell,bash,vim,ruby,cpp set shiftwidth=4
 autocmd FileType php,c,java,perl,shell,bash,vim,ruby,cpp set softtabstop=4
-autocmd FileType php,c,java,perl,shell,bash,vim,ruby,cpp set expandtab=4
+autocmd FileType php,c,java,perl,shell,bash,vim,ruby,cpp set expandtab
 autocmd FileType python set tabstop=4
 autocmd FileType python set shiftwidth=4
 autocmd FileType python set softtabstop=4
@@ -26,7 +26,7 @@ autocmd FileType python set noexpandtab
 autocmd FileType javascript,html,css,xml set tabstop=2
 autocmd FileType javascript,html,css,xml set shiftwidth=2
 autocmd FileType javascript,html,css,xml set softtabstop=2
-autocmd FileType javascript,html,css,xml set expandtab=2
+autocmd FileType javascript,html,css,xml set expandtab
 
 set wrap
 set showmatch
