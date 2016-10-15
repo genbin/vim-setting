@@ -89,6 +89,13 @@ Bundle 'EasyGrep'
 Bundle 'godlygeek/tabular'
 " 增强markdown
 Bundle 'plasticboy/vim-markdown'
+" tagbar
+Bundle 'majutsushi/tagbar'
+
+"ctags程序的路径
+let g:tagbar_ctags_bin='/usr/local/Cellar/ctags/5.8_1/bin/ctags'          
+"窗口宽度的设置
+let g:tagbar_width=30                   
 
 " EasyGrep 配置
 let g:EasyGrepMode = 0   " All:0, Open Buffers:1, TrackExt:2, 
@@ -173,3 +180,5 @@ vmap <Leader>c :close<CR>
 " 快捷显示tab
 nmap <Leader>tab :set list!<CR>
 vmap <Leader>tab :set list!<CR>
+
+map <leader>t :Tagbar<CR>
